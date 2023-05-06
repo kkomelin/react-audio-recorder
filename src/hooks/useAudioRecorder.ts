@@ -8,6 +8,7 @@ export interface recorderControls {
   isRecording: boolean;
   isPaused: boolean;
   recordingTime: number;
+  mediaRecorder: MediaRecorder | null;
 }
 
 /**
@@ -20,6 +21,7 @@ export interface recorderControls {
  * @details `isRecording`: A boolean value that represents whether a recording is currently in progress
  * @details `isPaused`: A boolean value that represents whether a recording in progress is paused
  * @details `recordingTime`: Number of seconds that the recording has gone on. This is updated every second
+ * @details `mediaRecorder`: The MediaRecorder object for more granular control.
  */
 const useAudioRecorder: () => recorderControls = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -99,6 +101,7 @@ const useAudioRecorder: () => recorderControls = () => {
     isRecording,
     isPaused,
     recordingTime,
+    mediaRecorder,
   };
 };
 
